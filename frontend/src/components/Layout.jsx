@@ -146,7 +146,7 @@ export default function Layout() {
           <div className="p-4 border-t border-slate-200/50 dark:border-slate-700/50">
             <div className="flex items-center gap-3">
               <a 
-                href="https://github.com" 
+                href="https://github.com/HVRGAMING2705/construct3-anomaly-detection" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-xl text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
