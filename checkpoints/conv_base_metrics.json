@@ -1,0 +1,15 @@
+{
+  "run": "conv_base",
+  "params": 256257,
+  "test_normal_mse": 0.01458541490137577,
+  "test_normal_rmse": 0.12077009108788389,
+  "test_normal_mae": 0.01458541490137577,
+  "threshold_95pct": 0.028809616342186928,
+  "precision": 0.4163424124513619,
+  "recall": 0.321,
+  "f1": 0.36250705815923207,
+  "roc_auc": 0.8572433888888888,
+  "pr_auc": 0.3682181267786468,
+  "n_normal_test": 9000,
+  "n_anomaly_test": 1000
+}

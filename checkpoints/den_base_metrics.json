@@ -1,0 +1,15 @@
+{
+  "run": "den_base",
+  "params": 256257,
+  "test_normal_mse": 0.016686126589775085,
+  "test_normal_rmse": 0.12917479084471198,
+  "test_normal_mae": 0.016686126589775085,
+  "threshold_95pct": 0.03214608505368233,
+  "precision": 0.40476190476190477,
+  "recall": 0.306,
+  "f1": 0.34851936218678814,
+  "roc_auc": 0.8429375555555556,
+  "pr_auc": 0.3550873541787123,
+  "n_normal_test": 9000,
+  "n_anomaly_test": 1000
+}

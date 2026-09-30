@@ -1,0 +1,15 @@
+{
+  "run": "fc_no_drop",
+  "params": 1086768,
+  "test_normal_mse": 0.0214214026927948,
+  "test_normal_rmse": 0.14636052299986768,
+  "test_normal_mae": 0.0214214026927948,
+  "threshold_95pct": 0.04191090166568756,
+  "precision": 0.37586685159500693,
+  "recall": 0.271,
+  "f1": 0.31493317838466006,
+  "roc_auc": 0.8184445555555555,
+  "pr_auc": 0.33951124766353025,
+  "n_normal_test": 9000,
+  "n_anomaly_test": 1000
+}
