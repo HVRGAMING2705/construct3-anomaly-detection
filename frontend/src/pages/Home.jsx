@@ -100,20 +100,20 @@ function ModelLeaderboard({ runs }) {
         <table className="w-full">
           <thead>
             <tr className="text-left text-sm font-medium text-slate-500 dark:text-slate-400 border-b border-slate-200/50 dark:border-slate-700/50">
-              <th className="pb-3 pr-4">Rank</th>
-              <th className="pb-3 pr-4">Model</th>
-              <th className="pb-3 pr-4">Type</th>
-              <th className="pb-3 pr-4">ROC-AUC</th>
-              <th className="pb-3 pr-4">F1 Score</th>
-              <th className="pb-3 pr-4">MSE</th>
-              <th className="pb-3 pr-4">Params</th>
+              <th className="pb-3 pr-2 lg:pr-4">Rank</th>
+              <th className="pb-3 pr-2 lg:pr-4">Model</th>
+              <th className="pb-3 pr-2 lg:pr-4">Type</th>
+              <th className="pb-3 pr-2 lg:pr-4">ROC-AUC</th>
+              <th className="pb-3 pr-2 lg:pr-4">F1 Score</th>
+              <th className="pb-3 pr-2 lg:pr-4">MSE</th>
+              <th className="pb-3 pr-2 lg:pr-4">Params</th>
               <th className="pb-3">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200/50 dark:divide-slate-700/50">
             {sortedRuns.slice(0, 5).map((run, index) => (
               <motion.tr key={run.run} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 + index * 0.05 }}>
-                <td className="py-4 pr-4">
+                <td className="py-4 pr-2 lg:pr-4">
                   <span className={clsx('w-8 h-8 rounded-full flex items-center justify-center font-bold font-display text-sm',
                     index === 0 ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400' :
                     index === 1 ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' :
@@ -123,15 +123,15 @@ function ModelLeaderboard({ runs }) {
                     {index + 1}
                   </span>
                 </td>
-                <td className="py-4 pr-4 font-medium text-slate-900 dark:text-slate-100">{run.run}</td>
-                <td className="py-4 pr-4">
+                <td className="py-4 pr-2 lg:pr-4 font-medium text-slate-900 dark:text-slate-100">{run.run}</td>
+                <td className="py-4 pr-2 lg:pr-4">
                   <UI.Badge variant="primary" className="text-xs">{run.model?.toUpperCase() || 'FC'}</UI.Badge>
                 </td>
-                <td className="py-4 pr-4">
+                <td className="py-4 pr-2 lg:pr-4">
                   <AnimatedCounter value={run.roc_auc || 0} className="font-mono text-lg font-bold text-slate-900 dark:text-slate-100" />
                 </td>
-                <td className="py-4 pr-4">
-                  <div className="relative w-32 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                <td className="py-4 pr-2 lg:pr-4">
+                  <div className="relative w-24 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"
                       initial={{ width: 0 }}
@@ -140,10 +140,10 @@ function ModelLeaderboard({ runs }) {
                     />
                   </div>
                 </td>
-                <td className="py-4 pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
+                <td className="py-4 pr-2 lg:pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
                   {(run.mse || 0).toFixed(4)}
                 </td>
-                <td className="py-4 pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
+                <td className="py-4 pr-2 lg:pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
                   {(run.params || 0).toLocaleString()}
                 </td>
                 <td className="py-4">
@@ -225,7 +225,7 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }} 
         animate={{ opacity: 1, y: 0 }} 
         transition={{ duration: 0.6 }}
-        className="mb-12"
+        className="mb-12 pt-8 lg:pt-12"
       >
         <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 dark:text-slate-50 mb-4">
           Construct3 <span className="text-gradient">Anomaly Detection Studio</span>
@@ -246,33 +246,33 @@ export default function Home() {
           <div className="stat-card p-6 h-full">
             <h3 className="font-display text-xl font-bold text-slate-900 dark:text-slate-50 mb-4">Quick Start</h3>
             <div className="space-y-3">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50">
+              <Link to="/train" className="group flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700/80 border border-transparent hover:border-primary-500/30 hover:shadow-md transition-all cursor-pointer">
                 <div className="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
                   <span className="text-primary-600 dark:text-primary-400 font-bold">1</span>
                 </div>
                 <div>
-                  <p className="font-medium text-slate-900 dark:text-slate-100">Train a model</p>
+                  <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-primary-500">Train a model</p>
                   <p className="text-sm text-slate-500 dark:text-slate-400">Choose FC, Conv, or Denoising</p>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50">
+              </Link>
+              <Link to="/detect" className="group flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700/80 border border-transparent hover:border-accent-500/30 hover:shadow-md transition-all cursor-pointer">
                 <div className="w-8 h-8 rounded-lg bg-accent-100 dark:bg-accent-900/30 flex items-center justify-center">
                   <span className="text-accent-600 dark:text-accent-400 font-bold">2</span>
                 </div>
                 <div>
-                  <p className="font-medium text-slate-900 dark:text-slate-100">Detect anomalies</p>
+                  <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-accent-500">Detect anomalies</p>
                   <p className="text-sm text-slate-500 dark:text-slate-400">Upload images or use webcam</p>
                 </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50">
+              </Link>
+              <Link to="/experiments" className="group flex items-center gap-3 p-3 rounded-xl bg-white/50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-700/80 border border-transparent hover:border-green-500/30 hover:shadow-md transition-all cursor-pointer">
                 <div className="w-8 h-8 rounded-lg bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
                   <span className="text-green-600 dark:text-green-400 font-bold">3</span>
                 </div>
                 <div>
-                  <p className="font-medium text-slate-900 dark:text-slate-100">Explore results</p>
+                  <p className="font-medium text-slate-900 dark:text-slate-100 group-hover:text-green-500">Explore results</p>
                   <p className="text-sm text-slate-500 dark:text-slate-400">Latent space, thresholds, figures</p>
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </motion.div>
