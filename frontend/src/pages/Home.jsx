@@ -100,21 +100,20 @@ function ModelLeaderboard({ runs }) {
         <table className="w-full">
           <thead>
             <tr className="text-left text-sm font-medium text-slate-500 dark:text-slate-400 border-b border-slate-200/50 dark:border-slate-700/50">
-              <th className="pb-3 pr-2 lg:pr-4">Rank</th>
-              <th className="pb-3 pr-2 lg:pr-4">Model</th>
-              <th className="pb-3 pr-2 lg:pr-4">Type</th>
-              <th className="pb-3 pr-2 lg:pr-4">ROC-AUC</th>
-              <th className="pb-3 pr-2 lg:pr-4">F1 Score</th>
-              <th className="pb-3 pr-2 lg:pr-4">MSE</th>
-              <th className="pb-3 pr-2 lg:pr-4">Params</th>
-              <th className="pb-3">Actions</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">Rank</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">Model</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">Type</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">ROC-AUC</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">F1 Score</th>
+              <th className="pb-2 pr-1 sm:pr-2 text-xs">Params</th>
+              <th className="pb-2 text-xs">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-200/50 dark:divide-slate-700/50">
             {sortedRuns.slice(0, 5).map((run, index) => (
               <motion.tr key={run.run} initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 + index * 0.05 }}>
-                <td className="py-4 pr-2 lg:pr-4">
-                  <span className={clsx('w-8 h-8 rounded-full flex items-center justify-center font-bold font-display text-sm',
+                <td className="py-3 pr-1 sm:pr-2">
+                  <span className={clsx('w-6 h-6 rounded-full flex items-center justify-center font-bold font-display text-xs',
                     index === 0 ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400' :
                     index === 1 ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' :
                     index === 2 ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400' :
@@ -123,15 +122,15 @@ function ModelLeaderboard({ runs }) {
                     {index + 1}
                   </span>
                 </td>
-                <td className="py-4 pr-2 lg:pr-4 font-medium text-slate-900 dark:text-slate-100">{run.run}</td>
-                <td className="py-4 pr-2 lg:pr-4">
-                  <UI.Badge variant="primary" className="text-xs">{run.model?.toUpperCase() || 'FC'}</UI.Badge>
+                <td className="py-3 pr-1 sm:pr-2 font-medium text-slate-900 dark:text-slate-100 text-sm">{run.run}</td>
+                <td className="py-3 pr-1 sm:pr-2">
+                  <UI.Badge variant="primary" className="text-[10px] px-1.5 py-0.5">{run.model?.toUpperCase() === 'DENOISING_CONV' ? 'DENOISE' : run.model?.toUpperCase() || 'FC'}</UI.Badge>
                 </td>
-                <td className="py-4 pr-2 lg:pr-4">
-                  <AnimatedCounter value={run.roc_auc || 0} className="font-mono text-lg font-bold text-slate-900 dark:text-slate-100" />
+                <td className="py-3 pr-1 sm:pr-2">
+                  <AnimatedCounter value={run.roc_auc || 0} className="font-mono text-base font-bold text-slate-900 dark:text-slate-100" />
                 </td>
-                <td className="py-4 pr-2 lg:pr-4">
-                  <div className="relative w-24 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                <td className="py-3 pr-1 sm:pr-2">
+                  <div className="relative w-16 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                     <motion.div
                       className="h-full bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"
                       initial={{ width: 0 }}
@@ -140,14 +139,11 @@ function ModelLeaderboard({ runs }) {
                     />
                   </div>
                 </td>
-                <td className="py-4 pr-2 lg:pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
-                  {(run.mse || 0).toFixed(4)}
-                </td>
-                <td className="py-4 pr-2 lg:pr-4 font-mono text-sm text-slate-600 dark:text-slate-400">
+                <td className="py-3 pr-1 sm:pr-2 font-mono text-xs text-slate-600 dark:text-slate-400">
                   {(run.params || 0).toLocaleString()}
                 </td>
-                <td className="py-4">
-                  <Link to={`/experiments?run=${run.run}`} className="btn-ghost text-sm px-3 py-1.5">
+                <td className="py-3">
+                  <Link to={`/experiments?run=${run.run}`} className="btn-ghost text-xs px-2 py-1">
                     Analyze
                   </Link>
                 </td>
