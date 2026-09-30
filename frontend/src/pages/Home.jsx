@@ -307,7 +307,7 @@ export default function Home() {
             <a href="https://woxsenschoolofbusiness-my.sharepoint.com/:w:/g/personal/vikranth_reddy_2028_woxsen_edu_in/IQBTAZGqikrBSbgbdrfm3kqTAXX4E0prtyTQMgshuA9HVF0?e=UNRBBu" target="_blank" rel="noopener noreferrer" className="btn-primary">
               View Paper <ExternalLink className="w-4 h-4" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            <a href="https://github.com/HVRGAMING2705/construct3-anomaly-detection" target="_blank" rel="noopener noreferrer" className="btn-secondary">
               GitHub <Github className="w-4 h-4" />
             </a>
           </div>
