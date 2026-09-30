@@ -3,9 +3,8 @@
 import { useState, useEffect } from 'react'
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Sun, Moon, Menu, X, Github, ExternalLink, Command } from 'lucide-react'
+import { Sun, Moon, Menu, X, Github, ExternalLink } from 'lucide-react'
 import { clsx } from 'clsx'
-import CommandPalette from './CommandPalette'
 import { UI } from './UI'
 
 const NAV_ITEMS = [
@@ -47,7 +46,6 @@ function BookOpenIcon({ className }) {
 export default function Layout() {
   const [isDark, setIsDark] = useState(false)
   const [sidebarOpen, setSidebarOpen] = useState(false)
-  const [commandOpen, setCommandOpen] = useState(false)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -65,17 +63,6 @@ export default function Layout() {
     document.documentElement.classList.toggle('dark', newDark)
   }
 
-  const handleKeyDown = (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-      e.preventDefault()
-      setCommandOpen(true)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
 
   return (
     <>
@@ -179,11 +166,6 @@ export default function Layout() {
             >
               <Menu className="w-6 h-6" />
             </button>
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50">
-              <Command className="w-4 h-4 text-slate-400" />
-              <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Search...</span>
-              <kbd className="px-1.5 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">⌘K</kbd>
-            </div>
           </div>
 
           <div className="flex items-center gap-3">
@@ -193,15 +175,6 @@ export default function Layout() {
               aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            <button
-              onClick={() => setCommandOpen(true)}
-              className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-700/50 text-sm font-medium text-slate-600 dark:text-slate-400 hover:bg-white dark:hover:bg-slate-800 transition-colors"
-              aria-label="Open command palette"
-            >
-              <Command className="w-4 h-4" />
-              <span>Command Palette</span>
-              <kbd className="px-1.5 py-0.5 text-xs bg-slate-100 dark:bg-slate-800 rounded">⌘K</kbd>
             </button>
           </div>
         </div>
@@ -216,11 +189,6 @@ export default function Layout() {
         </AnimatePresence>
       </main>
 
-      <CommandPalette 
-        isOpen={commandOpen} 
-        onClose={() => setCommandOpen(false)} 
-        navigate={navigate} 
-      />
 
       <script dangerouslySetInnerHTML={{
         __html: `
