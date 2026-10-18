@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://construct3-anomaly-detection.vercel.app/sitemap.xml
