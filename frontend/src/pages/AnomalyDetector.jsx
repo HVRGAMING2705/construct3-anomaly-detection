@@ -467,14 +467,14 @@ export default function AnomalyDetector() {
                 </div>
               ) : (
                 <>
-                  <Upload className="w-12 h-12 mx-auto text-slate-400 dark:text-slate-500 mb-4" />
+                  <Upload className="w-12 h-12 mx-auto text-slate-400 dark:text-slate-400 mb-4" />
                   <p className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-1">
                     {dragActive ? 'Drop image here' : 'Click or drag to upload'}
                   </p>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                     PNG, JPG, GIF, WebP, BMP up to 5MB
                   </p>
-                  <p className="text-xs text-slate-400 dark:text-slate-500">
+                  <p className="text-xs text-slate-400 dark:text-slate-400">
                     Images will be resized to 28×28 grayscale for detection
                   </p>
                 </>

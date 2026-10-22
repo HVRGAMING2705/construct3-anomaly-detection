@@ -158,7 +158,7 @@ function ComparisonView({ original, noisy, denoised, noiseStd }) {
         ctx.stroke()
         
         ctx.fillStyle = 'rgba(0,0,0,0.5)'
-        ctx.font = '14px Inter'
+        ctx.font = '14px -apple-system, "Segoe UI", Roboto, sans-serif'
         ctx.fillText('Original', 10, 20)
         ctx.fillText('Noisy (σ=' + noiseStd + ')', displaySize + 10, 20)
         ctx.fillText('Denoised', displaySize * 2 + 10, 20)
@@ -465,14 +465,14 @@ export default function Denoiser() {
                 </div>
               ) : (
                 <>
-                  <Upload className="w-12 h-12 mx-auto text-slate-400 dark:text-slate-500 mb-4" />
+                  <Upload className="w-12 h-12 mx-auto text-slate-400 dark:text-slate-400 mb-4" />
                   <p className="text-lg font-medium text-slate-900 dark:text-slate-100 mb-1">
                     {dragActive ? 'Drop image here' : 'Click or drag to upload'}
                   </p>
                   <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
                     PNG, JPG, GIF, WebP, BMP up to 5MB
                   </p>
-                  <p className="text-xs text-slate-400 dark:text-slate-500">
+                  <p className="text-xs text-slate-400 dark:text-slate-400">
                     Images will be resized to 28×28 grayscale
                   </p>
                 </>
@@ -636,7 +636,7 @@ export default function Denoiser() {
           
           {!result && !loading && (
             <UI.Card className="p-12 text-center">
-              <Sparkles className="w-16 h-16 mx-auto text-slate-400 dark:text-slate-500 mb-4" />
+              <Sparkles className="w-16 h-16 mx-auto text-slate-400 dark:text-slate-400 mb-4" />
               <h3 className="font-display text-lg font-bold text-slate-900 dark:text-slate-50 mb-2">No result yet</h3>
               <p className="text-slate-500 dark:text-slate-400">Upload an image and click Denoise to see results</p>
             </UI.Card>

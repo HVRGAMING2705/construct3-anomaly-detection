@@ -87,14 +87,14 @@ export default function CommandPalette({ isOpen, onClose, navigate }) {
           <div className="relative p-4">
             <div className="relative">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-              <kbd className="absolute right-4 top-1/2 -translate-y-1/2 px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-500">⌘K</kbd>
+              <kbd className="absolute right-4 top-1/2 -translate-y-1/2 px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-500 dark:text-slate-400">⌘K</kbd>
               <input
                 ref={inputRef}
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Search commands..."
-                className="w-full pl-12 pr-16 py-3 bg-white/5 dark:bg-slate-800/50 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full pl-12 pr-16 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 autoComplete="off"
                 spellCheck={false}
               />
@@ -111,7 +111,7 @@ export default function CommandPalette({ isOpen, onClose, navigate }) {
                     'flex items-center gap-4 px-4 py-3 cursor-pointer transition-colors',
                     index === selectedIndex 
                       ? 'bg-primary-500/10 text-primary-600 dark:text-primary-400' 
-                      : 'hover:bg-white/5 dark:hover:bg-slate-800/50 text-slate-700 dark:text-slate-300'
+                      : 'hover:bg-white dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
                   )}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -130,7 +130,7 @@ export default function CommandPalette({ isOpen, onClose, navigate }) {
                     <p className="font-medium truncate">{cmd.label}</p>
                     <p className="text-sm opacity-70 truncate">{cmd.description}</p>
                   </div>
-                  <kbd className="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-500 font-mono">
+                  <kbd className="px-2 py-1 text-xs bg-slate-100 dark:bg-slate-800 rounded text-slate-500 dark:text-slate-400 font-mono">
                     {cmd.shortcut}
                   </kbd>
                 </motion.div>
